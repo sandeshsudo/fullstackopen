@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
+
 import personsServices from './services/persons'
 import Notification from './components/Notification'
 
@@ -70,6 +71,7 @@ function App() {
       }
     }else{
       personsServices.create(newPerson).then(returnedNote => {
+        console.log('returned note', returnedNote)
         setNewName('')
         setNewPhoneNumber('')
         setErrorMessage(`${newPerson.name} added in the system`)
