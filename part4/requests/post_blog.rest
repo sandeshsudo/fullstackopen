@@ -1,9 +1,11 @@
-POST http://localhost:3003/api/blogs
+POST http://localhost:3003/api/blogs/
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNhbmR5IiwiaWQiOiI2M2I5MDYyMmNiNTQ4ZmUzNWUxNDkzNmYiLCJpYXQiOjE2NzM3NzIwNzIsImV4cCI6MTY3Mzc3NTY3Mn0.MvKTPAsgh9kGtSRw0yPxpQU1s9GH4cmD0xGBjlWfoZI
 
 {
-  "title": "Third Blog",
+  "title": "Blog with user extractor after direct 15th time ",
   "author": "Sandesh",
-  "url": "http://localhost:3003/third_blog",
-  "likes": 3
+  "url": "http://localhost:3003/blog_with_user_extractor",
+  "likes": 0,
+  "user":"63b90622cb548fe35e14936f"
 }
