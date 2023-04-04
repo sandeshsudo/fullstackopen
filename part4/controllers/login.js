@@ -8,6 +8,7 @@ const logger = require('../utils/logger')
 loginRouter.post('/', async (request, response) => {
     const {username, password} = request.body
 
+    try{
     const user = await User.findOne({username})
     const passwordCorrect = user === null ? false : await bcrypt.compare(password, user.passwordHash)
 
@@ -16,7 +17,7 @@ loginRouter.post('/', async (request, response) => {
             error: 'invalid username or password'
         })
     }
-
+    
     const userForToken = {
         username: user.username,
         id: user._id,
@@ -24,9 +25,11 @@ loginRouter.post('/', async (request, response) => {
 
     const token = jwt.sign(userForToken, process.env.SECRET, {expiresIn: 60*60})
 
-    response.status(200).send({token, username:user.username, name:user.name})
+    response.status(200).send({token, user_id:user.id, username:user.username, name:user.name})
+    }catch(exception){
+        console.log(exception)
+    }
     //logger.info("user logged in ", request.user.name)
 })
-
 
 module.exports = loginRouter
