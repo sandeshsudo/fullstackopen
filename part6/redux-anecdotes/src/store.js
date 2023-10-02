@@ -12,13 +12,4 @@ const store = configureStore({
     }
 })
 
-// anecdoteService.getAll().then(anecdotes => 
-//   anecdotes.forEach(anecdote => {
-//     store.dispatch(appendAnecdote(anecdote))
-// }) 
-// )
-
-
-
-
 export default store
